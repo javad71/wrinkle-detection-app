@@ -1,0 +1,10 @@
+@font-face {
+	font-family: '4365';
+	src: local('4365'), url('./4365.woff') format('woff');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_11020">Text with this font applied</p> */
+.fontsforweb_fontid_11020 {
+	font-family: '4365' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */
