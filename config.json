@@ -1,3 +1,4 @@
 {
-  "secret_key": "javad98"
+  "secret_key": "javad98",
+  "upload_folder": "uploads"
 }
