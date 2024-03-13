@@ -1,3 +1,30 @@
 [
-
+    {
+        "tags": [
+            "gummy_smile"
+        ],
+        "path": "./uploads/20240313142346_Wx1lscYi.jpg"
+    },
+    {
+        "tags": [],
+        "path": "./uploads/20240313142520_O0AKJG9Q.jpg"
+    },
+    {
+        "tags": [],
+        "path": "./uploads/20240313142546_69l4rvsE.jpg"
+    },
+    {
+        "tags": [
+            "crows_feet",
+            "crows_feet",
+            "gummy_smile",
+            "masseter",
+            "gummy_smile"
+        ],
+        "path": "./uploads/20240313142604_jDWXzsVg.jpg"
+    },
+    {
+        "tags": [],
+        "path": "./uploads/20240313143532_zgVQrOPE.jpg"
+    }
 ]

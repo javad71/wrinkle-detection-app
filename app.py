@@ -45,10 +45,13 @@ def generate_random_filename():
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'GET':
-        # Load existing data
-        json_filename = './result.json'
-        with open(json_filename, 'r') as json_file:
-            response_message = json.load(json_file)
+        try:
+            # Load existing data
+            json_filename = './result.json'
+            with open(json_filename, 'r') as json_file:
+                response_message = json.load(json_file)
+        except:
+            response_message = {}
 
         return render_template('index.html', result_data=response_message)
 
@@ -69,15 +72,10 @@ def main():
             try:
                 # Save the uploaded file
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join(upload_folder, filename))
 
                 # Perform your image processing here
-                processed_filename = process_image(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-                # Load existing data
-                json_filename = './result.json'
-                with open(json_filename, 'r') as json_file:
-                    response_message = json.load(json_file)
+                response_message = process_image(os.path.join(upload_folder, filename))
 
                 return render_template('index.html', result_data=response_message)
 
@@ -129,7 +127,7 @@ def process_image(input_path):
         with open(json_filename, 'w') as json_file:
             json.dump(existing_data, json_file, indent=4)
 
-        return input_path
+        return existing_data
     except Exception as e:
         logging.error(f"Error processing image: {e}")
         return None
