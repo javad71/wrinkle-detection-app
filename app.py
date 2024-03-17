@@ -18,10 +18,10 @@ except Exception as e:
     config = {}
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})  # Configure CORS to allow all origins
 app.secret_key = config['secret_key']
-upload_folder = config['upload_folder']
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+upload_folder = config['upload_folder']
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Set up logging
 logging.basicConfig(filename='app.log', level=logging.INFO,
@@ -72,10 +72,11 @@ def main():
             try:
                 # Save the uploaded file
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(upload_folder, filename))
+                file_path = os.path.join(str(upload_folder), filename)
+                file.save(file_path)
 
                 # Perform your image processing here
-                response_message = process_image(os.path.join(upload_folder, filename))
+                response_message = process_image(file_path)
 
                 return render_template('index.html', result_data=response_message)
 
@@ -136,7 +137,7 @@ def process_image(input_path):
 # Endpoint for update profile picture
 @app.route('/uploads/<filename>')
 def result_image(filename):
-    return send_from_directory(upload_folder, filename)
+    return send_from_directory(str(upload_folder), filename)
 
 
 if __name__ == '__main__':
