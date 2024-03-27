@@ -5,7 +5,6 @@ import string
 import json
 import logging
 from flask import Flask, render_template, request, send_file, redirect, flash, jsonify, send_from_directory
-from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from ultralytics import YOLO
 
