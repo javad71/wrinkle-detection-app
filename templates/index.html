@@ -302,5 +302,54 @@
         });
       });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Function to fetch updated results
+        function fetchUpdatedResults() {
+          fetch('/get_updated_results')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              // Update the HTML content with the new results
+              const resultContainer = document.getElementById('resultContainer');
+              resultContainer.innerHTML = ''; // Clear existing content
+              data.forEach(result => {
+                const card = `
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <div class="aspect-ratio-box">
+                        <img src="${result.path}" class="bd-placeholder-img card-img-top aspect-ratio-box-inner" width="100%" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">Tags: ${result.tags.join(', ')}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                `;
+                resultContainer.innerHTML += card;
+              });
+            })
+            .catch(error => {
+              console.error('Error fetching result:', error);
+              // Handle errors as needed
+            });
+        }
+
+        // Call the function initially
+        fetchUpdatedResults();
+
+        // Periodically fetch updated results
+        setInterval(fetchUpdatedResults, 10000); // Adjust interval as needed
+      });
+    </script>
     </body>
 </html>

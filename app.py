@@ -21,11 +21,6 @@ app = Flask(__name__)
 app.secret_key = config['secret_key']
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
 upload_folder = config['upload_folder']
-CORS(app, resources={r"/*": {"origins": "*"}})
-
-# Set up logging
-logging.basicConfig(filename='app.log', level=logging.INFO,
-                    format='%(asctime)s %(levelname)s: %(message)s')
 
 # Load the model once during application startup
 model = YOLO('./models/wd-yolov8-small.pt')  # load a custom model
@@ -134,10 +129,24 @@ def process_image(input_path):
         return None
 
 
-# Endpoint for update profile picture
+# Endpoint for show image from uploads
 @app.route('/uploads/<filename>')
 def result_image(filename):
     return send_from_directory(str(upload_folder), filename)
+
+
+@app.route('/get_updated_results', methods=['GET'])
+def get_updated_results():
+    try:
+        # Load existing data
+        json_filename = './result.json'
+        with open(json_filename, 'r') as json_file:
+            response_message = json.load(json_file)
+    except Exception as e:
+        logging.error(f"Error loading updated results: {e}")
+        response_message = {}
+
+    return jsonify(response_message)
 
 
 if __name__ == '__main__':
