@@ -35,6 +35,19 @@ def generate_random_filename():
     return f"{current_time}_{random_string}"
 
 
+def delete_data(path_to_delete):
+    # Load the JSON data from a file
+    with open('result.json', 'r') as json_file:
+        data = json.load(json_file)
+
+    # Filter out the entries with the specified path
+    filtered_data = [entry for entry in data if entry['path'] != path_to_delete]
+
+    # Write the updated data back to the file
+    with open('result.json', 'w') as json_file:
+        json.dump(filtered_data, json_file, indent=4)
+
+
 # Endpoint for main dashboard
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -134,6 +147,7 @@ def result_image(filename):
     return send_from_directory(str(upload_folder), filename)
 
 
+# Endpoint for get updated result from json file
 @app.route('/get_updated_results', methods=['GET'])
 def get_updated_results():
     try:
@@ -146,6 +160,24 @@ def get_updated_results():
         response_message = {}
 
     return jsonify(response_message)
+
+
+# Endpoint for delete processed image
+@app.route('/delete_image', methods=['POST'])
+def delete_image():
+    data = request.get_json()
+    image_path = data.get('image_path')
+
+    if image_path:
+        # Delete the image file
+        if os.path.exists(image_path):
+            os.remove(image_path)
+            delete_data(image_path)
+            return jsonify({'message': 'Image deleted successfully'}), 200
+        else:
+            return jsonify({'success': False, 'error': 'File not found'})
+    else:
+        return jsonify({'success': False, 'error': 'Image path not provided'})
 
 
 if __name__ == '__main__':

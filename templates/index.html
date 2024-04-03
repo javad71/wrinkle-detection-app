@@ -102,6 +102,20 @@
         animation: spin 1s linear infinite;
       }
 
+      #loadingIndicatorDelete {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: spin 1s linear infinite;
+      }
+
       @keyframes spin {
         0% { transform: translate(-50%, -50%) rotate(0deg); }
         100% { transform: translate(-50%, -50%) rotate(360deg); }
@@ -244,7 +258,8 @@
                       <p class="card-text">Tags: {{ result.tags | join(', ') }}</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary view-button" data-image="{{ result.path }}">View</button>
+                          <button type="button" class="btn btn-sm btn-outline-danger delete-button" data-image="{{ result.path }}">Delete</button>
                         </div>
                       </div>
                     </div>
@@ -253,6 +268,26 @@
              {% endfor %}
           </div>
         </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="galleryModalLabel">Expanded image</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="" alt="Expanded Image" class="img-fluid" id="modalImage">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div id="loadingIndicatorDelete">
+        <p>Loading...</p>
       </div>
 
     </main>
@@ -328,7 +363,8 @@
                         <p class="card-text">Tags: ${result.tags.join(', ')}</p>
                         <div class="d-flex justify-content-between align-items-center">
                           <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary view-button" data-image="${result.path}">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-danger delete-button" data-image="${result.path}">Delete</button>
                           </div>
                         </div>
                       </div>
@@ -351,5 +387,49 @@
         setInterval(fetchUpdatedResults, 10000); // Adjust interval as needed
       });
     </script>
+
+    <script>
+      $(document).ready(function() {
+          $(document).on('click', '.view-button', function() {
+              var imagePath = $(this).data('image');
+              $('#imageModal img').attr('src', imagePath);
+              $('#imageModal').modal('show');
+          });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+          $(document).on('click', '.delete-button', function() {
+              var imagePath = $(this).data('image');
+              // Show loading indicator
+              $('#loadingIndicatorDelete').show();
+              // Send an AJAX request to the Flask endpoint
+              $.ajax({
+                  url: '/delete_image',
+                  type: 'POST',
+                  contentType: 'application/json',
+                  data: JSON.stringify({ image_path: imagePath }),
+                  success: function(response) {
+                      // Handle successful response (if needed)
+                      console.log('Image deleted successfully');
+                      // Introduce a delay before hiding the loading indicator
+                      setTimeout(function() {
+                          $('#loadingIndicatorDelete').hide();
+                          // Optionally, you can remove the deleted image from the DOM
+                          $(this).closest('.card').remove(); // Remove the parent card element
+                      }, 1000); // Adjust the delay time (in milliseconds) as needed
+                      },
+                  error: function(xhr, status, error) {
+                      // Handle error response (if needed)
+                      console.error('Error deleting image:', error);
+                      // Hide loading indicator
+                      $('#loadingIndicatorDelete').hide();
+                  }
+              });
+          });
+      });
+    </script>
+
     </body>
 </html>
