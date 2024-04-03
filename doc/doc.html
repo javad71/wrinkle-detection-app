@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title data-translate="title">Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./files/bootstrap.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#7952b3">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .custom-paragraph {
+        font-size: 1rem; /* Adjust the font size according to your preference */
+      }
+
+      .custom-select {
+          margin: .5rem !important;
+      }
+
+      code {
+        background-color: #000; /* Black background color */
+        color: #fff; /* White text color */
+        padding: 0.2em 0.4em; /* Add padding for better readability */
+        border-radius: 0.25em; /* Add border-radius for a rounded look */
+        font-family: 'Courier New', Courier, monospace; /* Set a monospace font for code */
+        font-size: 1rem; /* Adjust the font size according to your preference */
+        display: block; /* Make code blocks block-level elements */
+        margin: 1em 0; /* Add margin for separation from other elements */
+        white-space: pre-line; /* Preserve both spaces and line breaks */
+      }
+
+      .me-2 {
+        margin-left: .5rem !important;
+      }
+
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="./files/dashboard.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#" data-translate="company_name">ILam university</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a data-translate="nav_overview" id="overviewLink" class="nav-link active" aria-current="page" href="#" onclick="showContent('overviewContent', 'overviewLink')">
+                  <span data-feather="home"></span> Overview
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-translate="nav_install" id="installationLink" class="nav-link" href="#" onclick="showContent('installationContent', 'installationLink')">
+                  <span data-feather="download"></span> Installation
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-translate="nav_usage" id="usageLink" class="nav-link" href="#" onclick="showContent('usageContent', 'usageLink')">
+                  <span data-feather="play-circle"></span> Usage
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-translate="nav_trouble" id="troubleshootingLink" class="nav-link" href="#" onclick="showContent('troubleshootingContent', 'troubleshootingLink')">
+                  <span data-feather="alert-circle"></span> Troubleshooting
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2" data-translate="header_description">Wrinkle detection app documents</h1>
+          </div>
+
+          <div id="overviewContent">
+              <h2 data-translate="overview">Overview</h2>
+              <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="overview_description_1">
+                    In the realm of skincare and beauty, the quest for youthful skin drives innovation. Wrinkles, often seen as signs of aging, prompt the development of solutions like wrinkle detection apps. Utilizing advanced deep learning techniques such as YOLOv8, these apps offer sophisticated means to identify and track wrinkles. This overview explores the creation and functionality of such an app, particularly focusing on its ability to detect nine distinct types of wrinkles, catering to diverse user needs and concerns.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="overview_description_2">
+                     At the heart of the app lies a robust dataset comprising annotated images representing various demographics, lighting conditions, and wrinkle types. Preparation of such a dataset ensures the model's ability to generalize well across diverse scenarios. The training process involves feeding this dataset into the YOLOv8 model, enabling it to learn intricate patterns associated with different types of wrinkles. Through iterative optimization, the model refines its parameters, enhancing its ability to accurately detect wrinkles of varying shapes, sizes, and intensities.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="overview_description_3">
+                     Once trained, the wrinkle detection model seamlessly integrates into a user-friendly web application. Users can effortlessly upload facial images or capture real-time photos using their device's camera. The app processes these images, highlighting detected wrinkles and categorizing them based on their type. Its intuitive user interface offers additional features like viewing detailed wrinkle information and scheduling consultations with skincare professionals, enriching the user experience and promoting holistic skincare practices.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="overview_description_4">
+                     Critical to the app's success is its accuracy, performance, and commitment to user privacy. Continuous evaluation ensures high detection accuracy, robustness to variations in image quality, and swift processing speed. Concurrently, stringent privacy measures safeguard user data, encrypting sensitive information and implementing safeguards against unauthorized access. By prioritizing accuracy, performance, and privacy, the wrinkle detection app not only delivers on its promise of effective skincare management but also instills trust and confidence among its user base.
+                  </p>
+                </div>
+              </div>
+          </div>
+
+          <div id="installationContent" style="display: none;">
+              <h2 data-translate="install">Installation</h2>
+              <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_1">
+                    <strong class="d-block text-gray-dark">Step 1: Install Python</strong>
+                    If you don't have Python installed, download and install it from the
+                    <a href="https://www.python.org/downloads/" target="_blank">official website</a>.
+                    During installation, make sure to check the box that says "Add Python to PATH."
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_2">
+                    <strong class="d-block text-gray-dark">Step 2: Open a Command Prompt</strong>
+                    Press <code>Win + R</code> type <code>cmd</code> and press Enter to open a Command Prompt.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_3">
+                    <strong class="d-block text-gray-dark">Step 3: Create a Virtual Environment</strong>
+                    It's strongly suggest to use a virtual environment to isolate dependencies for this app.
+                    In the Command Prompt, navigate to your project folder and run the following commands:
+                    <code> cd wrinkle-detection-app
+                           python -m venv venv
+                    </code>
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_4">
+                    <strong class="d-block text-gray-dark">Step 4: Activate the Virtual Environment</strong>
+                    In the Command Prompt, navigate to the project folder (if not already there) and activate the virtual environment:
+                    <code> venv\Scripts\activate </code>
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_5">
+                    <strong class="d-block text-gray-dark">Step 5: Install Requirements</strong>
+                      While the virtual environment is active, install Flask and ultralytics using the following commands:
+                     <code> pip install Flask==3.0.2
+                     </code>
+                     <code> pip install ultralytics==8.1.26
+                     </code>
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_6">
+                    <strong class="d-block text-gray-dark">Step 6: Set App Environment Variable</strong>
+                      In the Command Prompt, set the Flask app file as an environment variable.
+                      your app file is named <strong>app.py</strong>
+                     <code> set FLASK_APP=app.py
+                     </code>
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_7">
+                    <strong class="d-block text-gray-dark">Step 7: Run the App</strong>
+                     Finally, run the app with the following command:
+                     <code> python app.py </code>
+                     This will start the development server, and you should see output indicating that the server is running.
+                     By default, the app will be accessible at <a href="http://127.0.0.1:5000/" target="_blank">http://127.0.0.1:5000/</a> or <a href="http://localhost:5000/" target="_blank">http://localhost:5000/</a>.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="install_step_8">
+                    <strong class="d-block text-gray-dark">Step 8: Open the App in a Web Browser</strong>
+                    Open your web browser and navigate to the address where the app is running (usually <a href="http://127.0.0.1:5000/" target="_blank">http://127.0.0.1:5000/</a>).
+                  </p>
+                </div>
+              </div>
+          </div>
+
+          <div id="usageContent" style="display: none;">
+              <h2 data-translate="usage">Usage</h2>
+              <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <h6 class="border-bottom pb-2 mb-0" data-translate="usage_title">Welcome to the Wrinkle Detection Web App powered by YOLOv8! This section provides a detailed guide on how to effectively utilize the app's functionalities.</h6>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="usage_step_1">
+                    <strong class="d-block text-gray-dark">Upload and Process Images:</strong>
+                        Navigate to the "Upload Image" section of the web app.
+                        Choose an image containing facial features and wrinkles that you wish to analyze.
+                        Click on the "Process" button to initiate the analysis using the YOLOv8 trained model.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="usage_step_1">
+                    <strong class="d-block text-gray-dark">Detection and Storage:</strong>
+                        Upon processing, the app will detect various types of wrinkles present in the uploaded image using the YOLOv8 model.
+                        The results are then stored in a NoSQL format and saved into a JSON file for easy retrieval and display.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="usage_step_1">
+                    <strong class="d-block text-gray-dark">View Results in Album Format:</strong>
+                        Head to the "Results Album" section to view the detected wrinkles.
+                        The album presents the images along with their associated detected wrinkles in a visually appealing format.
+                        Users can switch between two layout options: "Day" and "Night", depending on their preference.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="usage_step_1">
+                    <strong class="d-block text-gray-dark">Extended Image Viewing and Deletion:</strong>
+                        In the album, users can click on individual images to view them in an extended format for closer inspection.
+                        Additionally, users have the option to delete specific results if desired, allowing for personalized management of the detected wrinkles.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="usage_step_1">
+                    <strong class="d-block text-gray-dark">Contact Developer and About Us:</strong>
+                        If you have any questions, feedback, or suggestions, feel free to reach out to the developer.
+                        Access the "About Us" section for more information about the app, its development team, and the technology behind it.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                    <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="usage_footer">
+                        The Wrinkle Detection Web App aims to provide users with a seamless and intuitive experience for analyzing and managing facial wrinkles. Whether you're curious about your skin's condition or seeking ways to improve it, this app serves as a valuable tool in your skincare journey. Enjoy exploring and optimizing your skincare routine with our advanced wrinkle detection capabilities!
+                    </p>
+                </div>
+              </div>
+          </div>
+
+          <div id="troubleshootingContent" style="display: none;">
+              <h2 data-translate="trouble">Troubleshooting</h2>
+              <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <h6 class="border-bottom pb-2 mb-0" data-translate="trouble_title">Encountering issues while using the Wrinkle Detection Web App? Don't worry; this troubleshooting guide is here to assist you in resolving common problems and optimizing your experience.</h6>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_1">
+                    <strong class="d-block text-gray-dark">Image Upload Failure:</strong>
+                        If you're having trouble uploading images, ensure that the file format is supported (e.g., JPEG, PNG) and that the file size does not exceed the maximum limit set by the app.
+                        Check your internet connection to ensure stable upload speeds.
+                        Clear your browser cache and try uploading the image again.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_2">
+                    <strong class="d-block text-gray-dark">Processing Errors:</strong>
+                        If the image processing is unsuccessful or takes longer than expected, verify that the uploaded image contains clear and well-lit facial features.
+                        Ensure that the app server is running smoothly without any technical issues or downtime.
+                        If the problem persists, try uploading a different image or refresh the page and attempt the processing again.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_3">
+                    <strong class="d-block text-gray-dark">Result Display Issues:</strong>
+                        If the detected wrinkles are not displayed correctly in the results album, refresh the page to reload the data from the JSON file.
+                        Check for any browser extensions or ad blockers that may interfere with the app's functionality. Disable them temporarily and retry.
+                        Ensure that JavaScript is enabled in your browser settings to enable dynamic content loading.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_4">
+                    <strong class="d-block text-gray-dark">Layout Selection Problems:</strong>
+                        If you encounter difficulties in switching between the "Day" and "Night" layout options, try clearing your browser cookies and cache.
+                        Make sure that your browser supports CSS styles and that there are no conflicts with other installed plugins or themes.
+                        If the issue persists, try accessing the app using a different web browser to determine if the problem is browser-specific.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_5">
+                    <strong class="d-block text-gray-dark">Contacting Developer:</strong>
+                        If you're unable to contact the developer through the provided contact information, double-check that the contact details are accurate and properly formatted.
+                        If the contact form is not working, consider reaching out through alternative channels such as email or social media platforms.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_5">
+                    <strong class="d-block text-gray-dark">General Performance Issues:</strong>
+                        If the app is running slowly or experiencing lag, close any unnecessary browser tabs or applications running in the background to free up system resources.
+                        Check your device's hardware specifications to ensure it meets the minimum requirements for running the app smoothly.
+                        If performance issues persist, consider upgrading your device's hardware or optimizing the app's codebase for better efficiency.
+                  </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                  <p class="pb-3 mb-0 small lh-sm border-bottom custom-paragraph" data-translate="trouble_6">
+                    By following these troubleshooting steps, you should be able to resolve common issues encountered while using the Wrinkle Detection Web App. If you continue to experience difficulties, don't hesitate to reach out to our support team for further assistance. We're here to help you make the most out of your skincare journey!
+                  </p>
+                </div>
+              </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./files/jquery-3.6.4.min.js"></script>
+    <script>
+        function showContent(contentId, linkId) {
+            // Hide all content sections
+            $('main [id$="Content"]').hide();
+
+            // Remove "active" class from all sidebar items
+            $('#sidebarMenu .nav-link').removeClass('active');
+
+            // Show the selected content section
+            $('#' + contentId).show();
+
+            // Add "active" class to the selected sidebar item
+            $('#' + linkId).addClass('active');
+        }
+    </script>
+    <script src="./files/bootstrap.bundle.min.js"></script>
+    <script src="./files/feather.min.js"></script>
+    <script src="./files/dashboard.js"></script>
+  </body>
+</html>
